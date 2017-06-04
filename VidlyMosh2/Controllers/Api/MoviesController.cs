@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Runtime.InteropServices;
 using System.Web.Http;
 using AutoMapper;
+using System.Data.Entity;
 using VidlyMosh2.Dtos;
 using VidlyMosh2.Models;
 
@@ -23,7 +24,7 @@ namespace VidlyMosh2.Controllers.Api
         //Get /api/movies
         public IEnumerable<MovieDto> GetMovies()
         {
-            return _context.Movies.ToList().Select(Mapper.Map<Movie, MovieDto>);
+            return _context.Movies.Include(c => c.Genre).ToList().Select(Mapper.Map<Movie, MovieDto>);
         }
 
         //Get /api/movies/1
