@@ -54,9 +54,9 @@ namespace VidlyMosh2
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "1432825540143206",
+               appSecret: "cb0ab9ce6145daccec36a6a447487db9");
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{

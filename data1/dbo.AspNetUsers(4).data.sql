@@ -1,0 +1,2 @@
+﻿
+INSERT INTO [dbo].[AspNetUsers] ([Id], [Email], [EmailConfirmed], [PasswordHash], [SecurityStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEndDateUtc], [LockoutEnabled], [AccessFailedCount], [UserName], [DrivingLicense]) VALUES (N'7f6194b6-dd4c-484f-9e48-42bbb967fb4d', N'guest5@vidly.com', 0, N'bBnyDl0nygCCdrzjCCd+dX7N/UQp8+Y/Zdb8KzmAOBoLIJTFZ1o8phqdys45Bb0zrw==', N'1427f6b4-208f-489d-bfbd-41c641cb15d7', NULL, 0, 0, NULL, 1, 0, N'guest5@vidly.com', '12345')
