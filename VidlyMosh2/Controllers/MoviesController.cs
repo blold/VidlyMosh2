@@ -26,8 +26,10 @@ namespace VidlyMosh2.Controllers
         public ViewResult Index()
         {
  /*           var movies = _context.Movies.Include(m => m.Genre).ToList();*/
+            if (User.IsInRole("CanManageMovie"))
+                return View("List");
 
-            return View();    
+            return View("ReadOnlyList");
         }
 
         public ViewResult New()
