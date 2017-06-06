@@ -1,5 +1,7 @@
-﻿using System.Data.Entity;
+﻿using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
+using System.Runtime.Caching;
 using System.Web.Mvc;
 using Vidly.ViewModels;
 using VidlyMosh2.Models;
@@ -68,6 +70,17 @@ namespace VidlyMosh2.Controllers
         {
 /*            var customers = _context.Customers.Include(c => c.MembershipType).ToList();
             return View(customers);*/
+
+
+/*    Cache Data, use the above approach(Data cache) after done the performance profiling and also
+              limited to actions that are used for displaying data*/
+//            if (MemoryCache.Default["Genres"] == null)
+//            {
+//                MemoryCache.Default["Genres"] = _context.Genres.ToList();
+//            }
+//
+//            var genres = MemoryCache.Default["Genres"] as IEnumerable<Genre>;
+
             return View();
         }
 

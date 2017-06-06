@@ -28,6 +28,7 @@ namespace VidlyMosh2.Controllers.Api
         }
 
         //Get /api/movies/1
+        [Authorize(Roles = RoleName.CanManageMovies)]
         public IHttpActionResult GetMovie(int id)
         {
             var movie = _context.Movies.SingleOrDefault(c => c.Id == id);
@@ -41,6 +42,7 @@ namespace VidlyMosh2.Controllers.Api
 
         //Post /api/movies
         [HttpPost]
+        [Authorize(Roles = RoleName.CanManageMovies)]
         public IHttpActionResult CreateMovie(MovieDto movieDto)
         {
             if (!ModelState.IsValid)
@@ -55,6 +57,7 @@ namespace VidlyMosh2.Controllers.Api
 
         //Put /api/movies/1
         [HttpPut]
+        [Authorize(Roles = RoleName.CanManageMovies)]
         public IHttpActionResult UpdateMovie(int id, MovieDto movieDto)
         {
             if(!ModelState.IsValid)
@@ -75,6 +78,7 @@ namespace VidlyMosh2.Controllers.Api
         }
 
         [HttpDelete]
+        [Authorize(Roles = RoleName.CanManageMovies)]
         public IHttpActionResult DeleteMovie(int id)
         {
             var movieInDb = _context.Movies.SingleOrDefault(c => c.Id == id);

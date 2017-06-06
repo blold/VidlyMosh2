@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace VidlyMosh2.Models
 {
-    public class ExternalLoginConfirmationViewModel
+/*    public class ExternalLoginConfirmationViewModel
     {
         [Required]
         [Display(Name = "Email")]
@@ -12,7 +12,11 @@ namespace VidlyMosh2.Models
         [Required]
         [Display(Name = "Driving License")]
         public string DrivingLicense { get; set; }
-    }
+
+        [Required]
+        [Display(Name = "Phone")]
+        public string Phone { get; set; }
+    }*/
 
     public class ExternalLoginListViewModel
     {
@@ -68,6 +72,10 @@ namespace VidlyMosh2.Models
 
     public class RegisterViewModel
     {
+        [Required]
+        [Display(Name = "Phone")]
+        public string Phone { get; set; }
+
         [Required]
         [Display(Name = "Driving License")]
         public string DrivingLicense { get; set; }
