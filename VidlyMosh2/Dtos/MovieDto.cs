@@ -27,5 +27,7 @@ namespace VidlyMosh2.Dtos
 /*        [NumberOfStockRange]*/
         public byte NumberInStock { get; set; }
 
+        public byte NumberAvailable { get; set; }
+
     }
 }

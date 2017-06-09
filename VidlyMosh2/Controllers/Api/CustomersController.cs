@@ -23,12 +23,29 @@ namespace VidlyMosh2.Controllers.Api
         }
 
         //Get /api/customers
-        public IEnumerable<CustomerDto> GetCustomers()
+/*        public IEnumerable<CustomerDto> GetCustomers()
         {
             return _context.Customers
                 .Include(c => c.MembershipType)
                 .ToList()
                 .Select(Mapper.Map<Customer, CustomerDto>);
+        }*/
+    
+        /*Get the customers and sent the cusomer depending on the user typing the customer
+         name in New Rental Form*/
+        public IHttpActionResult GetCustomers(string query = null)
+        {
+
+            var customersQuery = _context.Customers.Include(c => c.MembershipType);
+
+            if (!String.IsNullOrWhiteSpace(query))
+                customersQuery = customersQuery.Where(c => c.Name.Contains(query));
+
+            var customerDtos = customersQuery.ToList()
+                .Select(Mapper.Map<Customer, CustomerDto>);
+
+            return Ok(customerDtos);
+
         }
 
 

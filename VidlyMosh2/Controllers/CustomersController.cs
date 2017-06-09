@@ -72,14 +72,16 @@ namespace VidlyMosh2.Controllers
             return View(customers);*/
 
 
-/*    Cache Data, use the above approach(Data cache) after done the performance profiling and also
+/*    Cache Data, use the below approach(Data cache) after done the performance profiling and also
               limited to actions that are used for displaying data*/
-//            if (MemoryCache.Default["Genres"] == null)
-//            {
-//                MemoryCache.Default["Genres"] = _context.Genres.ToList();
-//            }
-//
-//            var genres = MemoryCache.Default["Genres"] as IEnumerable<Genre>;
+            if (MemoryCache.Default["Genres"] == null)
+            {
+                MemoryCache.Default["Genres"] = _context.Genres.ToList();
+            }
+
+            var genres = MemoryCache.Default["Genres"] as IEnumerable<Genre>;
+
+
 
             return View();
         }
