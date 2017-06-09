@@ -8,7 +8,7 @@
 <h2>New Rental Form</h2>
 
 @*Raw HTml to call web Api*@
-<form >
+<form id="newRental" >
     @*ZenCoding*@
     
     <div class="form-group">
@@ -47,7 +47,7 @@
 
             var vm = {
                 movieIds: []
-        };
+            };
 
             var customers = new Bloodhound({
                 datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
@@ -57,7 +57,7 @@
                     wildcard: '%QUERY'
                 }
             });
-            
+
             $('#customer').typeahead({
                     minLength: 3,
                     highlight: true
@@ -89,18 +89,31 @@
                     name: 'movies',
                     display: 'name',
                     source: movies
-                }).on("typeahead:select", function (e, movie) {
+                }).on("typeahead:select",
+                function(e, movie) {
 
-                    $("#movies").append("<li class= 'list-group-item'">" + movie.name + </li>");
+                    $("#movies").append("<li class= 'list-group-item'" > " + movie.name + </li>");
 
 
                     $("#movie").typeahead("val", ""),
+                        vm.movieIds.push(movie.id);
+                });
+            $("#newRental").submit(function(e) {
+                e.preventDefault();
+                $.ajax({
+                        url: "/api/newRentals",
+                        method: "post",
+                        data: vm //viewModel, it`s newRentalDto, including customerID and moviesId
+                    })
+                    .done(function() {
+                        console.log("done");
 
-                    vm.movieIds.push(movie.id);
+                    })
+                    .fail(function() {
+
+                    });
+
             });
-
-        })
-
-
+        });
     </script>
 }
